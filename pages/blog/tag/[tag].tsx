@@ -46,7 +46,7 @@ const Page: React.FC<PageProps> = ({ filterTag, pagesByTag, popularPosts, allTag
               {allTags
                 ?.filter((tag) => tag !== 'popular')
                 .map((tag) => (
-                  <Link href={tag === filterTag ? '/blog/list' : `/blog/tag/${tag}`} key={tag}>
+                  <Link href={tag === filterTag ? '/blog' : `/blog/tag/${tag}`} key={tag}>
                     <a
                       className={classNames(
                         'inline-block text-sm font-bold mr-2 mb-2 transform duration-200  rounded-md px-2 py-1',
