@@ -165,10 +165,10 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
-"@types/react@^18.0.12":
-  version "18.0.12"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.12.tgz#cdaa209d0a542b3fcf69cf31a03976ec4cdd8840"
-  integrity sha512-duF1OTASSBQtcigUvhuiTB1Ya3OvSy+xORCiEf20H0P0lzx+/KeVsA99U5UjLXSbyo1DRJDlLKqTeM1ngosqtg==
+"@types/react@^18.0.14":
+  version "18.0.14"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.14.tgz#e016616ffff51dba01b04945610fe3671fdbe06d"
+  integrity sha512-x4gGuASSiWmo0xjDLpm5mPb52syZHJx02VKbqUKdLmKtAwIh63XClGsiTI1K6DO5q7ox4xAsQrU+Gl3+gGXF9Q==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -1083,10 +1083,10 @@ react-big-calendar@^0.40.0:
     react-overlays "^4.1.1"
     uncontrollable "^7.2.1"
 
-react-bricks-ui@^0.4.2:
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/react-bricks-ui/-/react-bricks-ui-0.4.2.tgz#e28edc60d9bafa74c4e82c24a05c138252ca97eb"
-  integrity sha512-ciKnk7HarkA//1ggtOsze3CG1bqaImBMjo32/l0DTDw+qEZf40S+wBZ7odMUAyXRHjChGmbedonXMaHFUG5K4g==
+react-bricks-ui@^0.4.3:
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/react-bricks-ui/-/react-bricks-ui-0.4.3.tgz#b53277a3762d4468bb3df43d0c5665a093550dce"
+  integrity sha512-/oeCi10BpXqZgpI6dxB7+CANAzy2jHoU4tEPAFEa4mOHztoXjbaywdf9vvppn85+P4bHm0BAHKNgnrJUtznZVg==
   dependencies:
     classnames "^2.3.1"
     dayjs "^1.10.8"
@@ -1095,10 +1095,10 @@ react-bricks-ui@^0.4.2:
     pigeon-maps "^0.20.0"
     react-icons "^4.3.1"
 
-react-bricks@^3.2.26:
-  version "3.2.26"
-  resolved "https://registry.yarnpkg.com/react-bricks/-/react-bricks-3.2.26.tgz#8f95aadeca02ecba0005b9a464cca49dfa2bd1f3"
-  integrity sha512-OGd8FHi4tEFHq296kk9xiF1vhsICQ1G9W0wimeohXiMcQ5KGKOgOQVSBaO+Qjj+qnIG/kkN9YmeTLMc1pAm8MA==
+react-bricks@^3.2.27:
+  version "3.2.27"
+  resolved "https://registry.yarnpkg.com/react-bricks/-/react-bricks-3.2.27.tgz#bdaafeae62efbe5abedb0804ed2d859fb8a0f8cb"
+  integrity sha512-qe29uUjkkzfrTpbyvH9R3KcbjXUsy2hGZ6HRYFK6K0CMpxGcP25sr6ECL6bZgEqmbjvM6SpE5It2p8/wDtKQWA==
   dependencies:
     "@tippyjs/react" "^4.2.6"
     axios "^0.25.0"
@@ -1443,10 +1443,10 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
-tailwindcss@^3.1.3:
-  version "3.1.3"
-  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.1.3.tgz#b9ef2c1ae537c339679e8e89635af8e143d1c7eb"
-  integrity sha512-PRJNYdSIthrb8hjmAyymEyEN8Yo61TMXpzyFUpxULeeyRn3Y3gpvuw6FlRTKrJvK7thSGKRnhT36VovVx4WeMA==
+tailwindcss@^3.1.4:
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.1.4.tgz#64b09059805505902139fa805d97046080bd90b9"
+  integrity sha512-NrxbFV4tYsga/hpWbRyUfIaBrNMXDxx5BsHgBS4v5tlyjf+sDsgBg5m9OxjrXIqAS/uR9kicxLKP+bEHI7BSeQ==
   dependencies:
     arg "^5.0.2"
     chokidar "^3.5.3"
@@ -1515,10 +1515,10 @@ tslib@^2.1.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.4.0.tgz#7cecaa7f073ce680a05847aa77be941098f36dc3"
   integrity sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==
 
-typescript@^4.7.3:
-  version "4.7.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.7.3.tgz#8364b502d5257b540f9de4c40be84c98e23a129d"
-  integrity sha512-WOkT3XYvrpXx4vMMqlD+8R8R37fZkjyLGlxavMc4iB8lrl8L0DeTcHbYgw/v0N/z9wAFsgBhcsF0ruoySS22mA==
+typescript@^4.7.4:
+  version "4.7.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.7.4.tgz#1a88596d1cf47d59507a1bcdfb5b9dfe4d488235"
+  integrity sha512-C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ==
 
 uncontrollable@^7.0.0, uncontrollable@^7.2.1:
   version "7.2.1"
