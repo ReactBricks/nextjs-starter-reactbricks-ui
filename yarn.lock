@@ -1117,10 +1117,10 @@ react-bricks-ui@^0.5.0:
     pigeon-maps "^0.20.0"
     react-icons "^4.3.1"
 
-react-bricks@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/react-bricks/-/react-bricks-3.3.0.tgz#08f0158428f310091dca754da5acb480ee8ca2ff"
-  integrity sha512-OEVg0r/V1A7S4+Fc8/fbbmmY2YUtulK6Dqaib2mJIXqiyuZbfVqBeTLZHSjHiZ2Xuhw9EbqNyTnWWopX73edbw==
+react-bricks@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/react-bricks/-/react-bricks-3.3.1.tgz#bb8288535048b604df37a6d49729e316f638d058"
+  integrity sha512-HnlSluFcY5NBkVGZnTDnkmUoKmM8UhP1qlFkuq8pa7V3N4fw3bQZxLbMOwi0OYiKgYeszE4cwup8oE4a1u+2Yw==
   dependencies:
     "@tippyjs/react" "^4.2.6"
     axios "^0.25.0"
