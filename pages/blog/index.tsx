@@ -46,10 +46,12 @@ const BlogList: React.FC<HomeProps> = ({ tags, posts, error }) => {
               {tags
                 ?.filter((tag) => tag !== 'popular')
                 .map((tag) => (
-                  <Link href={`/blog/tag/${tag}`} key={tag}>
-                    <a className="inline-block text-sm font-bold mr-2 mb-2 transform duration-200 text-cyan-800 bg-cyan-100 hover:bg-cyan-200 hover:text-cyan-900 rounded-md px-2 py-1">
-                      {tag}
-                    </a>
+                  <Link
+                    href={`/blog/tag/${tag}`}
+                    key={tag}
+                    className="inline-block text-sm font-bold mr-2 mb-2 transform duration-200 text-cyan-800 bg-cyan-100 hover:bg-cyan-200 hover:text-cyan-900 rounded-md px-2 py-1"
+                  >
+                    {tag}
                   </Link>
                 ))}
               {/*  */}
@@ -62,10 +64,11 @@ const BlogList: React.FC<HomeProps> = ({ tags, posts, error }) => {
                 ?.filter((post) => post.tags.find((tag) => tag === 'popular'))
                 .map((post) => (
                   <li key={post.id}>
-                    <Link href={`/blog/post/${post.slug}`}>
-                      <a className="text-gray-900 hover:text-cyan-600 font-bold text-lg leading-10 transition-colors">
-                        {post.name}
-                      </a>
+                    <Link
+                      href={`/blog/post/${post.slug}`}
+                      className="text-gray-900 hover:text-cyan-600 font-bold text-lg leading-10 transition-colors"
+                    >
+                      {post.name}
                     </Link>
                   </li>
                 ))}

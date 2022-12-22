@@ -32,6 +32,8 @@ const MyHeroUnit: types.Brick<HeroUnitProps> = ({ padding }) => {
               {props.children}
             </h1>
           )}
+          multiline={true}
+          softLineBreak={true}
           placeholder="Type a title..."
           propName="title"
         />
@@ -69,7 +71,7 @@ MyHeroUnit.schema = {
   label: 'Custom Hero Unit',
   getDefaultProps: () => ({
     padding: 'big',
-    title: 'This is a custom Hero Unit',
+    title: 'This is a custom Hero U\nnit',
     text: "We are a hi-tech web development company committed to deliver great products on time. We love to understand our customers' needs and exceed expectations.",
   }),
   sideEditProps: [

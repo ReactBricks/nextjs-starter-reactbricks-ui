@@ -46,18 +46,17 @@ const Page: React.FC<PageProps> = ({ filterTag, pagesByTag, popularPosts, allTag
               {allTags
                 ?.filter((tag) => tag !== 'popular')
                 .map((tag) => (
-                  <Link href={tag === filterTag ? '/blog' : `/blog/tag/${tag}`} key={tag}>
-                    <a
-                      className={classNames(
-                        'inline-block text-sm font-bold mr-2 mb-2 transform duration-200  rounded-md px-2 py-1',
-                        tag === filterTag
-                          ? 'text-blue-800 bg-blue-100 hover:bg-blue-200 hover:text-blue-900'
-                          : 'text-cyan-800 bg-cyan-100 hover:bg-cyan-200 hover:text-cyan-900'
-                      )}
-                    >
-                      <div className="" style={{ zIndex: -1 }} />
-                      {tag}
-                    </a>
+                  <Link
+                    href={tag === filterTag ? '/blog' : `/blog/tag/${tag}`}
+                    key={tag}
+                    className={classNames(
+                      'inline-block text-sm font-bold mr-2 mb-2 transform duration-200  rounded-md px-2 py-1',
+                      tag === filterTag
+                        ? 'text-blue-800 bg-blue-100 hover:bg-blue-200 hover:text-blue-900'
+                        : 'text-cyan-800 bg-cyan-100 hover:bg-cyan-200 hover:text-cyan-900'
+                    )}
+                  >
+                    {tag}
                   </Link>
                 ))}
               {/*  */}
@@ -68,10 +67,11 @@ const Page: React.FC<PageProps> = ({ filterTag, pagesByTag, popularPosts, allTag
             <ul>
               {popularPosts?.map((post) => (
                 <li key={post.id}>
-                  <Link href={`/blog/posts/${post.slug}`}>
-                    <a className="text-gray-900 hover:text-cyan-600 font-bold text-lg leading-10 transition-colors">
-                      {post.name}
-                    </a>
+                  <Link
+                    href={`/blog/posts/${post.slug}`}
+                    className="text-gray-900 hover:text-cyan-600 font-bold text-lg leading-10 transition-colors"
+                  >
+                    {post.name}
                   </Link>
                 </li>
               ))}
