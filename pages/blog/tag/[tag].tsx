@@ -1,110 +1,160 @@
-import classNames from 'classnames'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
-import { fetchPages, fetchTags, types } from 'react-bricks/frontend'
+import {
+  PageViewer,
+  cleanPage,
+  fetchPage,
+  fetchPages,
+  fetchTags,
+  types,
+  useReactBricksContext,
+} from 'react-bricks/frontend'
+
 import PostListItem from '../../../components/PostListItem'
-import ErrorNoPage from '../../../components/errorNoPage'
+import TagListItem from '../../../components/TagListItem'
+import ErrorNoFooter from '../../../components/errorNoFooter'
+import ErrorNoHeader from '../../../components/errorNoHeader'
+import ErrorNoKeys from '../../../components/errorNoKeys'
 import Layout from '../../../components/layout'
 import config from '../../../react-bricks/config'
 
 interface PageProps {
   pagesByTag: types.Page[]
   popularPosts: types.Page[]
-  error: string
+  errorNoKeys: string
+  errorHeader: string
+  errorFooter: string
   filterTag: string
   allTags: string[]
+  header: types.Page
+  footer: types.Page
 }
 
-const Page: React.FC<PageProps> = ({ filterTag, pagesByTag, popularPosts, allTags, error }) => {
+const Page: React.FC<PageProps> = ({
+  filterTag,
+  pagesByTag,
+  // popularPosts,
+  allTags,
+  errorNoKeys,
+  errorHeader,
+  errorFooter,
+  header,
+  footer,
+}) => {
+  const { pageTypes, bricks } = useReactBricksContext()
+  const headerOk = header ? cleanPage(header, pageTypes, bricks) : null
+  const footerOk = footer ? cleanPage(footer, pageTypes, bricks) : null
   return (
     <Layout>
-      <Head>
-        <title>{filterTag}</title>
-        <meta name="description" content={filterTag} />
-      </Head>
-      <h1 className="text-center text-4xl sm:text-6xl lg:text-7xl leading-none font-black tracking-tight text-gray-900 pb-4 mt-10 sm:mt-12 mb-4">
-        Blog
-      </h1>
-      <div className="max-w-6xl mx-auto px-8 py-16 flex space-x-24">
-        <section className="flex-[2] space-y-8">
-          <h2 className="text-pink-500 uppercase mb-8 tracking-widest font-bold">{filterTag}</h2>
-          {pagesByTag?.map((post) => (
-            <PostListItem
-              key={post.id}
-              title={post.name}
-              href={post.slug}
-              content={post.meta.description}
-            />
-          ))}
-        </section>
-        <section className="flex-1 space-y-16">
-          <div>
-            <h2 className="text-pink-500 uppercase mb-8 tracking-widest font-bold">Tags</h2>
-            <div className="flex flex-wrap items-center">
-              {/* T A G  */}
-              {allTags
-                ?.filter((tag) => tag !== 'popular')
-                .map((tag) => (
-                  <Link
-                    href={tag === filterTag ? '/blog' : `/blog/tag/${tag}`}
-                    key={tag}
-                    className={classNames(
-                      'inline-block text-sm font-bold mr-2 mb-2 transform duration-200  rounded-md px-2 py-1',
-                      tag === filterTag
-                        ? 'text-blue-800 bg-blue-100 hover:bg-blue-200 hover:text-blue-900'
-                        : 'text-cyan-800 bg-cyan-100 hover:bg-cyan-200 hover:text-cyan-900'
-                    )}
-                  >
-                    {tag}
-                  </Link>
+      {!errorNoKeys && (
+        <>
+          <Head>
+            <title>{filterTag}</title>
+            <meta name="description" content={filterTag} />
+          </Head>
+          {headerOk && !errorHeader ? (
+            <PageViewer page={headerOk} />
+          ) : (
+            <ErrorNoHeader />
+          )}
+          <div className="bg-white dark:bg-gray-900">
+            <div className="max-w-6xl mx-auto px-8 py-16">
+              <div className="flex items-center justify-between  text-gray-900 dark:text-white pb-4 mt-10 sm:mt-12 mb-4">
+                <h1 className="max-w-2xl text-4xl sm:text-6xl lg:text-4xl font-bold tracking-tight">
+                  {filterTag} articles
+                </h1>
+
+                <Link
+                  href="/blog"
+                  className="hover:-translate-x-2 transition-transform duration-300"
+                >
+                  &laquo; Return to blog
+                </Link>
+              </div>
+
+              <div className="flex flex-wrap items-center">
+                {allTags
+                  ?.filter((tag) => tag !== 'popular')
+                  .map((tag) => (
+                    <TagListItem tag={tag} key={tag} />
+                  ))}
+              </div>
+
+              <hr className="mt-6 mb-10 dark:border-gray-600" />
+
+              <div className="grid lg:grid-cols-2 xl:grid-cols-3 sm:gap-12">
+                {pagesByTag?.map((post) => (
+                  <PostListItem
+                    key={post.id}
+                    title={post.meta.title}
+                    href={post.slug}
+                    content={post.meta.description}
+                    author={post.author}
+                    date={post.publishedAt}
+                    featuredImg={post.meta.featuredImage || ''}
+                  />
                 ))}
-              {/*  */}
+              </div>
             </div>
           </div>
-          <div>
-            <h2 className="text-pink-500 uppercase mb-8 tracking-widest font-bold">Most Popular</h2>
-            <ul>
-              {popularPosts?.map((post) => (
-                <li key={post.id}>
-                  <Link
-                    href={`/blog/posts/${post.slug}`}
-                    className="text-gray-900 hover:text-cyan-600 font-bold text-lg leading-10 transition-colors"
-                  >
-                    {post.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-      </div>
-      {error === 'NOKEYS' && <ErrorNoPage />}
+          {footerOk && !errorFooter ? (
+            <PageViewer page={footerOk} />
+          ) : (
+            <ErrorNoFooter />
+          )}
+        </>
+      )}
+      {errorNoKeys && <ErrorNoKeys />}
     </Layout>
   )
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
+  let errorNoKeys: boolean = false
+  let errorPage: boolean = false
+  let errorHeader: boolean = false
+  let errorFooter: boolean = false
+
   if (!config.apiKey) {
+    errorNoKeys = true
     return { props: { error: 'NOKEYS' } }
   }
-  const { tag } = context.params
-  try {
-    const { items: tags } = await fetchTags(process.env.API_KEY)
-    tags.sort()
 
-    const pagesByTag = await fetchPages(config.apiKey, {
-      tag: tag.toString(),
-      type: 'blog',
-      pageSize: 1000,
-      sort: '-publishedAt',
-    })
-    const popularPosts = await fetchPages(config.apiKey, {
-      type: 'blog',
-      tag: 'popular',
-      sort: '-publishedAt',
-    })
-    return { props: { pagesByTag, filterTag: tag, popularPosts, allTags: tags } }
+  const { tag } = context.params
+
+  try {
+    const [pagesByTag, tagsResult, header, footer] = await Promise.all([
+      fetchPages(config.apiKey, {
+        tag: tag.toString(),
+        type: 'blog',
+        pageSize: 100,
+        sort: '-publishedAt',
+      }),
+      fetchTags(process.env.API_KEY),
+      fetchPage('header', config.apiKey, context.locale).catch(() => {
+        errorHeader = true
+        return {}
+      }),
+      fetchPage('footer', config.apiKey, context.locale).catch(() => {
+        errorFooter = true
+        return {}
+      }),
+    ])
+
+    return {
+      props: {
+        pagesByTag,
+        filterTag: tag,
+        allTags: tagsResult.items.sort(),
+        header,
+        footer,
+        errorNoKeys,
+        errorPage,
+        errorHeader,
+        errorFooter,
+      },
+    }
   } catch {
     return { props: {} }
   }

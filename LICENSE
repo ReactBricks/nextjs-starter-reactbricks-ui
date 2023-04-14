@@ -1,17 +1,19 @@
-This license applies to this Starter project.
-For the React Bricks library and APIs usage, see the Terms and Conditions 
-on the ReactBricks.com website.
+Copyright (c) 2023 React Bricks
 
-The MIT License (MIT)
+Permission is hereby granted, free of charge, to any user of the React Bricks
+services, to use this starter project and the included pre-made content blocks
+in order to create a website using the React Bricks services.
+This is a "source available" license.
 
-Copyright (c) 2021 F2 .net engineering s.r.l.
+As for any part of the React Bricks services, the use is subject to the
+acceptance of the general Terms of Service, which can be found at:
+https://reactbricks.com/legal/terms
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+In particular, the users may not use this project for the purpose of (i)
+building a competitive product or service, (ii) building a product using
+similar ideas, features, functions, user interface of graphics of React
+Bricks Services, (iii) copying any ideas, features, functions, user
+interface or graphics of the React Bricks Services.
 
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
@@ -23,4 +25,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-

@@ -1,5 +1,5 @@
-import React from 'react'
 import Head from 'next/head'
+import React from 'react'
 import { Admin, Login } from 'react-bricks'
 
 const AdminLogin: React.FC = () => {

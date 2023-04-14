@@ -1,34 +1,20 @@
-import { useState } from 'react'
-import { ReactBricks } from 'react-bricks/frontend'
+import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
-import config from '../react-bricks/config'
+
+import ReactBricksApp from './ReactBricksApp'
 
 import '../css/styles.css'
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
-  // Color Mode Management
-  const savedColorMode =
-    typeof window === 'undefined' ? '' : localStorage.getItem('color-mode')
-  const [colorMode, setColorMode] = useState(savedColorMode || 'light')
-  const toggleColorMode = () => {
-    const newColorMode = colorMode === 'light' ? 'dark' : 'light'
-    setColorMode(newColorMode)
-    localStorage.setItem('color-mode', newColorMode)
-  }
-
-  const reactBricksConfig = {
-    ...config,
-    isDarkColorMode: colorMode === 'dark',
-    toggleColorMode,
-    contentClassName: `antialiased font-content ${colorMode} ${
-      colorMode === 'dark' ? 'bg-gray-900' : 'bg-white'
-    }`,
-  }
-
+const MyApp = (props: AppProps) => {
   return (
-    <ReactBricks {...reactBricksConfig}>
-      <Component {...pageProps} />
-    </ReactBricks>
+    <ThemeProvider
+      attribute="class"
+      storageKey="color-mode"
+      enableSystem={false}
+      defaultTheme="light"
+    >
+      <ReactBricksApp {...props}></ReactBricksApp>
+    </ThemeProvider>
   )
 }
 
