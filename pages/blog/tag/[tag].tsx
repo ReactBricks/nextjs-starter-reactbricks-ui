@@ -34,7 +34,6 @@ interface PageProps {
 const Page: React.FC<PageProps> = ({
   filterTag,
   pagesByTag,
-  // popularPosts,
   allTags,
   errorNoKeys,
   errorHeader,
@@ -74,9 +73,7 @@ const Page: React.FC<PageProps> = ({
               </div>
 
               <div className="flex flex-wrap items-center">
-                {allTags
-                  ?.filter((tag) => tag !== 'popular')
-                  .map((tag) => (
+                {allTags?.map((tag) => (
                     <TagListItem tag={tag} key={tag} />
                   ))}
               </div>
