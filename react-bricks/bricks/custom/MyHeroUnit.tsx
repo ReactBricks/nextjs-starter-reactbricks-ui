@@ -25,7 +25,7 @@ const MyHeroUnit: types.Brick<HeroUnitProps> = ({ padding }) => {
         <Image
           propName="icon"
           alt="Icon"
-          maxWidth={80}
+          maxWidth={200}
           aspectRatio={1}
           imageClassName="w-20 mb-5 mx-auto"
         />
