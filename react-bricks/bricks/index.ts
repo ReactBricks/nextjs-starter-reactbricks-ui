@@ -6,7 +6,7 @@ import reactBricksUITheme from './react-bricks-ui'
 const bricks: types.Theme[] = [
   reactBricksUITheme, // React Bricks UI
   {
-    themeName: 'Custom Theme 1',
+    themeName: 'Custom',
     categories: [
       {
         categoryName: 'Hero sections',
