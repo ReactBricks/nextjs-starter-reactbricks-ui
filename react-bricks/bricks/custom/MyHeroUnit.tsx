@@ -35,9 +35,6 @@ const MyHeroUnit: types.Brick<HeroUnitProps> = ({ padding }) => {
               {props.children}
             </h1>
           )}
-          renderPlaceholder={(props) => (
-            <span className="opacity-30">{props.children}</span>
-          )}
           placeholder="Type a title..."
           propName="title"
         />
