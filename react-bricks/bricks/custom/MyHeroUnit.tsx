@@ -59,7 +59,7 @@ const MyHeroUnit: types.Brick<HeroUnitProps> = ({ padding }) => {
             </code>
           )}
           renderLink={(props) => (
-            <a href={props.href} className="text-sky-500">
+            <a href={props.href} className="text-sky-500 hover:text-sky-600">
               {props.children}
             </a>
           )}
