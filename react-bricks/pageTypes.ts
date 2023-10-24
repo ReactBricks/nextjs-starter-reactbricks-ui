@@ -24,16 +24,23 @@ const pageTypes: types.IPageType[] = [
       'tweet-light',
       'blog-title',
       'newsletter-subscribe',
-      'external-data-example',
     ],
-    getExternalData: () =>
-      fetch('https://catfact.ninja/fact')
+  },
+  {
+    name: 'pokemon',
+    pluralName: 'pokemon',
+    getExternalData: (page) =>
+      fetch(`https://pokeapi.co/api/v2/pokemon/${page.slug}`)
         .then((response) => response.json())
         .then((data) => ({
-          catFact: data.fact,
-        })),
+          ...data,
+          imageUrl: `https://img.pokemondb.net/artwork/large/${data.name}.jpg`,
+        }))
+        .catch((error) => {
+          console.log(error)
+          return {}
+        }),
   },
-
   {
     name: 'layout',
     pluralName: 'layout',
