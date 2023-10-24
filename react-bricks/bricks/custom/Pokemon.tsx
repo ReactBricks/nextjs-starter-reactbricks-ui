@@ -37,7 +37,7 @@ const Pokemon: types.Brick<PokemonProps> = ({
 }
 
 Pokemon.schema = {
-  name: 'Pokemon',
+  name: 'pokemon',
   label: 'Pokemon',
   mapExternalDataToProps: (externalData, brickProps) => ({
     id: externalData.id,
