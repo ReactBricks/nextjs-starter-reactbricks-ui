@@ -10,6 +10,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
     "dayjs": "^1.11.7",
     "email-validator": "^2.0.4",
     "jsonp": "^0.2.1",
