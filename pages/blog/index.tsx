@@ -118,19 +118,19 @@ export const getStaticProps: GetStaticProps = async (context) => {
       sort: '-publishedAt',
     })
 
-    header = await fetchPage('header', config.apiKey, context.locale).catch(
-      () => {
+    header = await fetchPage('header', config.apiKey, context.locale)
+      .then(({ author, ...page }) => page)
+      .catch(() => {
         errorHeader = true
         return {}
-      }
-    )
+      })
 
-    footer = await fetchPage('footer', config.apiKey, context.locale).catch(
-      () => {
+    footer = await fetchPage('footer', config.apiKey, context.locale)
+      .then(({ author, ...page }) => page)
+      .catch(() => {
         errorFooter = true
         return {}
-      }
-    )
+      })
 
     return { props: { posts, tags, header, footer, errorHeader, errorFooter } }
   } catch {
