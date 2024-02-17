@@ -108,12 +108,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
       config.apiKey,
       context.locale,
       config.pageTypes
-    )
-      .then(({ author, ...page }) => page)
-      .catch(() => {
-        errorPage = true
-        return {}
-      }),
+    ).catch(() => {
+      errorPage = true
+      return {}
+    }),
     fetchPage('header', config.apiKey, context.locale)
       .then(({ author, ...page }) => page)
       .catch(() => {
