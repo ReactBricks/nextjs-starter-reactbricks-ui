@@ -131,7 +131,9 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
     return { paths: [], fallback: true }
   }
 
-  const allPages = await fetchPages(config.apiKey)
+  const allPages = await fetchPages(config.apiKey, {
+    types: ['page', 'pokemon'],
+  })
 
   const paths = allPages
     .map((page) =>
