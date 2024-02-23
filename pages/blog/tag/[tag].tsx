@@ -74,8 +74,8 @@ const Page: React.FC<PageProps> = ({
 
               <div className="flex flex-wrap items-center">
                 {allTags?.map((tag) => (
-                    <TagListItem tag={tag} key={tag} />
-                  ))}
+                  <TagListItem tag={tag} key={tag} />
+                ))}
               </div>
 
               <hr className="mt-6 mb-10 dark:border-gray-600" />
@@ -129,14 +129,18 @@ export const getStaticProps: GetStaticProps = async (context) => {
         sort: '-publishedAt',
       }),
       fetchTags(process.env.API_KEY),
-      fetchPage('header', config.apiKey, context.locale).catch(() => {
-        errorHeader = true
-        return {}
-      }),
-      fetchPage('footer', config.apiKey, context.locale).catch(() => {
-        errorFooter = true
-        return {}
-      }),
+      fetchPage('header', config.apiKey, context.locale)
+        .then(({ author, ...page }) => page)
+        .catch(() => {
+          errorHeader = true
+          return {}
+        }),
+      fetchPage('footer', config.apiKey, context.locale)
+        .then(({ author, ...page }) => page)
+        .catch(() => {
+          errorFooter = true
+          return {}
+        }),
     ])
 
     return {

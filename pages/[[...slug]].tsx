@@ -93,20 +93,24 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 
   const [page, header, footer] = await Promise.all([
-    fetchPage(cleanSlug, config.apiKey, context.locale, config.pageTypes).catch(
-      () => {
+    fetchPage(cleanSlug, config.apiKey, context.locale, config.pageTypes)
+      .then(({ author, ...page }) => page)
+      .catch(() => {
         errorPage = true
         return {}
-      }
-    ),
-    fetchPage('header', config.apiKey, context.locale).catch(() => {
-      errorHeader = true
-      return {}
-    }),
-    fetchPage('footer', config.apiKey, context.locale).catch(() => {
-      errorFooter = true
-      return {}
-    }),
+      }),
+    fetchPage('header', config.apiKey, context.locale)
+      .then(({ author, ...page }) => page)
+      .catch(() => {
+        errorHeader = true
+        return {}
+      }),
+    fetchPage('footer', config.apiKey, context.locale)
+      .then(({ author, ...page }) => page)
+      .catch(() => {
+        errorFooter = true
+        return {}
+      }),
   ])
 
   return {
@@ -127,7 +131,9 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
     return { paths: [], fallback: true }
   }
 
-  const allPages = await fetchPages(config.apiKey)
+  const allPages = await fetchPages(config.apiKey, {
+    types: ['page', 'pokemon'],
+  })
 
   const paths = allPages
     .map((page) =>

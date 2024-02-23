@@ -112,14 +112,18 @@ export const getStaticProps: GetStaticProps = async (context) => {
       errorPage = true
       return {}
     }),
-    fetchPage('header', config.apiKey, context.locale).catch(() => {
-      errorHeader = true
-      return {}
-    }),
-    fetchPage('footer', config.apiKey, context.locale).catch(() => {
-      errorFooter = true
-      return {}
-    }),
+    fetchPage('header', config.apiKey, context.locale)
+      .then(({ author, ...page }) => page)
+      .catch(() => {
+        errorHeader = true
+        return {}
+      }),
+    fetchPage('footer', config.apiKey, context.locale)
+      .then(({ author, ...page }) => page)
+      .catch(() => {
+        errorFooter = true
+        return {}
+      }),
   ])
 
   return {
