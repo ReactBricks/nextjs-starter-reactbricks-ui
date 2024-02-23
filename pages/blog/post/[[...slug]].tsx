@@ -61,14 +61,14 @@ h3 + p {
   margin-top: 0!important;
 }
               `}</style>
-              <PageViewer page={headerOk} showClickToEdit={false} />
+              <PageViewer page={headerOk} />
             </>
           ) : (
             <ErrorNoHeader />
           )}
-          <PageViewer page={pageOk} />
+          <PageViewer page={pageOk} main/>
           {footerOk && !errorFooter ? (
-            <PageViewer page={footerOk} showClickToEdit={false} />
+            <PageViewer page={footerOk} />
           ) : (
             <ErrorNoFooter />
           )}

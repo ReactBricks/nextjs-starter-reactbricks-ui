@@ -53,7 +53,7 @@ const Page: React.FC<PageProps> = ({
             <meta name="description" content={filterTag} />
           </Head>
           {headerOk && !errorHeader ? (
-            <PageViewer page={headerOk} showClickToEdit={false} />
+            <PageViewer page={headerOk} />
           ) : (
             <ErrorNoHeader />
           )}
@@ -96,7 +96,7 @@ const Page: React.FC<PageProps> = ({
             </div>
           </div>
           {footerOk && !errorFooter ? (
-            <PageViewer page={footerOk} showClickToEdit={false} />
+            <PageViewer page={footerOk} />
           ) : (
             <ErrorNoFooter />
           )}

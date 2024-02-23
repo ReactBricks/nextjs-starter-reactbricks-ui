@@ -50,7 +50,7 @@ const BlogList: React.FC<HomeProps> = ({
             <meta name="description" content="React Bricks blog starter" />
           </Head>
           {headerOk && !errorHeader ? (
-            <PageViewer page={headerOk} showClickToEdit={false} />
+            <PageViewer page={headerOk} />
           ) : (
             <ErrorNoHeader />
           )}
@@ -86,7 +86,7 @@ const BlogList: React.FC<HomeProps> = ({
             </div>
           </div>
           {footerOk && !errorFooter ? (
-            <PageViewer page={footerOk} showClickToEdit={false} />
+            <PageViewer page={footerOk} />
           ) : (
             <ErrorNoFooter />
           )}
