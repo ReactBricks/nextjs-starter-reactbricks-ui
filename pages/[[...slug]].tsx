@@ -93,19 +93,19 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 
   const [page, header, footer] = await Promise.all([
-    fetchPage(cleanSlug, config.apiKey, context.locale, config.pageTypes)
+    fetchPage({ slug: cleanSlug, language: context.locale, config })
       .then(({ author, ...page }) => page)
       .catch(() => {
         errorPage = true
         return {}
       }),
-    fetchPage('header', config.apiKey, context.locale)
+    fetchPage({ slug: 'header', language: context.locale, config })
       .then(({ author, ...page }) => page)
       .catch(() => {
         errorHeader = true
         return {}
       }),
-    fetchPage('footer', config.apiKey, context.locale)
+    fetchPage({ slug: 'footer', language: context.locale, config })
       .then(({ author, ...page }) => page)
       .catch(() => {
         errorFooter = true

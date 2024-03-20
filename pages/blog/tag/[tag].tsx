@@ -129,13 +129,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
         sort: '-publishedAt',
       }),
       fetchTags(process.env.API_KEY),
-      fetchPage('header', config.apiKey, context.locale)
+      fetchPage({ slug: 'header', language: context.locale, config })
         .then(({ author, ...page }) => page)
         .catch(() => {
           errorHeader = true
           return {}
         }),
-      fetchPage('footer', config.apiKey, context.locale)
+      fetchPage({ slug: 'footer', language: context.locale, config })
         .then(({ author, ...page }) => page)
         .catch(() => {
           errorFooter = true

@@ -26,10 +26,6 @@ const Pokemon: types.Brick<PokemonProps> = ({
         <p className="text-sm text-slate-700 uppercase tracking-widest font-bold text-center mb-1">
           Test external data
         </p>
-        <p className="text-center text-slate-600">
-          You will not see this in the frontend, because it is an add-on feature
-          on paid plans.
-        </p>
       </div>
       <img src={imageUrl} className="mx-auto w-36 mb-4" />
 

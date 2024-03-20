@@ -66,7 +66,7 @@ h3 + p {
           ) : (
             <ErrorNoHeader />
           )}
-          <PageViewer page={pageOk} main/>
+          <PageViewer page={pageOk} main />
           {footerOk && !errorFooter ? (
             <PageViewer page={footerOk} />
           ) : (
@@ -103,22 +103,19 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 
   const [page, header, footer] = await Promise.all([
-    fetchPage(
-      cleanSlug.toString(),
-      config.apiKey,
-      context.locale,
-      config.pageTypes
-    ).catch(() => {
-      errorPage = true
-      return {}
-    }),
-    fetchPage('header', config.apiKey, context.locale)
+    fetchPage({ slug: cleanSlug, language: context.locale, config }).catch(
+      () => {
+        errorPage = true
+        return {}
+      }
+    ),
+    fetchPage({ slug: 'header', language: context.locale, config })
       .then(({ author, ...page }) => page)
       .catch(() => {
         errorHeader = true
         return {}
       }),
-    fetchPage('footer', config.apiKey, context.locale)
+    fetchPage({ slug: 'footer', language: context.locale, config })
       .then(({ author, ...page }) => page)
       .catch(() => {
         errorFooter = true
