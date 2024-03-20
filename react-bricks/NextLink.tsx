@@ -4,6 +4,8 @@ import { types } from 'react-bricks/frontend'
 
 const NextLink: types.RenderLocalLink = ({
   href,
+  target,
+  rel,
   className,
   activeClassName,
   isAdmin,
@@ -21,14 +23,14 @@ const NextLink: types.RenderLocalLink = ({
 
   if (isAdmin) {
     return (
-      <Link href={href} className={anchorClassName}>
+      <Link href={href} target={target} rel={rel} className={anchorClassName}>
         {children}
       </Link>
     )
   }
 
   return (
-    <Link href={href} className={anchorClassName}>
+    <Link href={href} target={target} rel={rel} className={anchorClassName}>
       {children}
     </Link>
   )

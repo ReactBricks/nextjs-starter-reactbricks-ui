@@ -2,6 +2,7 @@ import React from 'react'
 import { types } from 'react-bricks/frontend'
 
 interface PokemonProps {
+  pokemonName: string
   id: number
   name: string
   height: number
@@ -17,14 +18,19 @@ const Pokemon: types.Brick<PokemonProps> = ({
   imageUrl,
 }) => {
   if (!id || !name || !height || !weight || !imageUrl) {
-    return (
-      <div className="text-center text-red-500 underline text-xl">
-        Pokemon not found!
-      </div>
-    )
+    return null
   }
   return (
-    <div className="container max-w-3xl mx-auto">
+    <div className="my-6 pb-6 container max-w-3xl mx-auto border-2 border-slate-200">
+      <div className="p-2 bg-slate-100 mb-6">
+        <p className="text-sm text-slate-700 uppercase tracking-widest font-bold text-center mb-1">
+          Test external data
+        </p>
+        <p className="text-center text-slate-600">
+          You will not see this in the frontend, because it is an add-on feature
+          on paid plans.
+        </p>
+      </div>
       <img src={imageUrl} className="mx-auto w-36 mb-4" />
 
       <h1 className="text-5xl font-extrabold text-center mb-6">{name}</h1>
@@ -39,16 +45,35 @@ const Pokemon: types.Brick<PokemonProps> = ({
 Pokemon.schema = {
   name: 'pokemon',
   label: 'Pokemon',
-  mapExternalDataToProps: (externalData, brickProps) => ({
-    id: externalData.id,
-    name: externalData.name,
-    height: externalData.height,
-    weight: externalData.weight,
-    imageUrl: externalData.imageUrl,
-  }),
+  previewImageUrl: `/bricks-preview-images/pokemon.png`,
+  getDefaultProps: () => ({}),
+  getExternalData: (page, brickProps) =>
+    fetch(`https://pokeapi.co/api/v2/pokemon/${brickProps.pokemonName}`)
+      .then((response) => response.json())
+      .then((data) => ({
+        ...data,
+        imageUrl: `https://img.pokemondb.net/artwork/large/${data.name}.jpg`,
+      }))
+      .catch((error) => {
+        return {
+          id: 0,
+          name: '',
+          height: 0,
+          weight: 0,
+          imageUrl: '',
+        }
+      }),
 
   // Sidebar Edit controls for props
-  sideEditProps: [],
+  sideEditProps: [
+    {
+      name: 'pokemonName',
+      label: 'Pokemon Name',
+      type: types.SideEditPropType.Text,
+      helperText:
+        'Enter a valid Pokemon name, like "pikachu" or "charizard" and save.',
+    },
+  ],
 }
 
 export default Pokemon
