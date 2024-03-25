@@ -132,7 +132,7 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
   }
 
   const allPages = await fetchPages(config.apiKey, {
-    types: ['page', 'pokemon'],
+    type: 'page',
   })
 
   const paths = allPages
