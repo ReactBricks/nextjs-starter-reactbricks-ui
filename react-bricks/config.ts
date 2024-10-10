@@ -39,7 +39,6 @@ const config: types.ReactBricksConfig = {
   enablePreviewImage: true,
   enableDefaultEmbedBrick: true,
   //permissions,  Fine-grained permissions for enterprise plans
-  experimentalSidebarRepeaterItems: true
 }
 
 export default config
