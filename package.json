@@ -10,6 +10,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@formspree/react": "^2.5.1",
     "dayjs": "^1.11.12",
     "email-validator": "^2.0.4",
     "jsonp": "^0.2.1",
