@@ -5,27 +5,27 @@ const ErrorNoKeys = () => {
         Warning: missing App credentials
       </h1>
       <p className="mb-6">
-        <code className="text-sm text-black bg-gray-100 px-1 py-1 rounded">
+        <code className="text-sm text-black bg-gray-100 px-1 py-1 rounded-sm">
           NEXT_PUBLIC_APP_ID
         </code>{' '}
         and{' '}
-        <code className="text-sm text-black bg-gray-100 px-1 py-1 rounded">
+        <code className="text-sm text-black bg-gray-100 px-1 py-1 rounded-sm">
           API_KEY
         </code>{' '}
         are not configured in your{' '}
-        <code className="text-sm text-black bg-gray-100 px-1 py-1 rounded">
+        <code className="text-sm text-black bg-gray-100 px-1 py-1 rounded-sm">
           .env.local
         </code>{' '}
         file.
       </p>
       <p className="mb-2">
         Please create a{' '}
-        <code className="text-sm text-black bg-gray-100 px-1 py-1 rounded">
+        <code className="text-sm text-black bg-gray-100 px-1 py-1 rounded-sm">
           .env.local
         </code>{' '}
         file with:
       </p>
-      <pre className="bg-gray-900 text-white px-4 py-3 rounded">
+      <pre className="bg-gray-900 text-white px-4 py-3 rounded-sm">
         {`NEXT_PUBLIC_APP_ID=...
 API_KEY=...`}
       </pre>

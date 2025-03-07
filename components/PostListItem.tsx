@@ -29,7 +29,7 @@ const PostListItem: React.FC<PostListItemProps> = ({
         readonly
         source={featuredImg}
         alt="Blog article featured image"
-        imageClassName="aspect-video object-cover rounded-sm"
+        imageClassName="aspect-video object-cover rounded-xs"
       />
 
       {/* justify-between */}
