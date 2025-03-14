@@ -11,6 +11,7 @@ import {
   useReactBricksContext,
 } from 'react-bricks/frontend'
 
+import { ReactNode } from 'react'
 import ErrorNoFooter from '../../../components/errorNoFooter'
 import ErrorNoHeader from '../../../components/errorNoHeader'
 import ErrorNoKeys from '../../../components/errorNoKeys'
@@ -48,8 +49,8 @@ const Page: React.FC<PageProps> = ({
       {pageOk && !errorPage && !errorNoKeys && (
         <>
           <Head>
-            {renderMeta(pageOk)}
-            {renderJsonLd(pageOk)}
+            {renderMeta(pageOk) as ReactNode}
+            {renderJsonLd(pageOk) as ReactNode}
           </Head>
           {headerOk && !errorHeader ? (
             <>

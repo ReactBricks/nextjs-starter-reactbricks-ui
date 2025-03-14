@@ -5,12 +5,13 @@ import {
   cleanPage,
   fetchPage,
   fetchPages,
-  types,
-  useReactBricksContext,
   renderJsonLd,
   renderMeta,
+  types,
+  useReactBricksContext,
 } from 'react-bricks/frontend'
 
+import { ReactNode } from 'react'
 import ErrorNoFooter from '../components/errorNoFooter'
 import ErrorNoHeader from '../components/errorNoHeader'
 import ErrorNoKeys from '../components/errorNoKeys'
@@ -48,8 +49,8 @@ const Page: React.FC<PageProps> = ({
       {pageOk && !errorPage && !errorNoKeys && (
         <>
           <Head>
-            {renderMeta(pageOk)}
-            {renderJsonLd(pageOk)}
+            {renderMeta(pageOk) as ReactNode}
+            {renderJsonLd(pageOk) as ReactNode}
           </Head>
           {headerOk && !errorHeader ? (
             <PageViewer page={headerOk} />
@@ -143,7 +144,8 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
         )
         .map((translation) => ({
           params: {
-            slug: [...translation.slug.split('/')],
+            slug:
+              translation.slug === '/' ? [] : [...translation.slug.split('/')],
           },
           locale: translation.language,
         }))
