@@ -20,7 +20,7 @@
     "prism-theme-night-owl": "^1.4.0",
     "prismjs": "^1.30.0",
     "react": "19.0.0",
-    "react-bricks": "4.7.0-beta.7",
+    "react-bricks": "^4.7.0",
     "react-dom": "19.0.0",
     "react-slick": "^0.30.3",
     "slick-carousel": "^1.8.1"
