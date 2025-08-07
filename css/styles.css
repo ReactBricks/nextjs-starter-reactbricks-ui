@@ -13,6 +13,18 @@
 
   --shadow-news-letter: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
     0 5px 15px 0 rgba(0, 0, 0, 0.05);
+
+  --color-primary-50: oklch(97% 0.014 246.7);
+  --color-primary-100: oklch(92.801% 0.02494 247.68);
+  --color-primary-200: oklch(87.402% 0.04488 246.23);
+  --color-primary-300: oklch(79.702% 0.08382 243.91);
+  --color-primary-400: oklch(69.103% 0.13676 246.72);
+  --color-primary-500: oklch(60.304% 0.1787 251.91);
+  --color-primary-600: oklch(53.003% 0.21676 254.98);
+  --color-primary-700: oklch(47.769% 0.22002 257.51);
+  --color-primary-800: oklch(41.602% 0.18488 257.74);
+  --color-primary-900: oklch(37.501% 0.13894 257.62);
+  --color-primary-950: oklch(28.2% 0.091 260.03);
 }
 
 /*
