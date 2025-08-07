@@ -3,6 +3,7 @@ import { types } from 'react-bricks/frontend'
 import HeroUnit from './custom/MyHeroUnit'
 import Pokemon from './custom/Pokemon'
 import reactBricksUITheme from './react-bricks-ui'
+import siteBricksUITheme from './sitebricks-ui'
 
 const bricks: types.Theme[] = [
   reactBricksUITheme, // React Bricks UI
